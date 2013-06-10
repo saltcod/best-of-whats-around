@@ -1,0 +1,757 @@
+/*
+Theme Name: Archival Local Food
+ Author: Terry Sutton
+Author URI: http://waterstreetgm.org/
+Description: A reworking of the victoria_park theme from Automattic.
+Version: 0.2
+
+*/
+
+
+
+
+@import "elements.less";
+@import "normalize.css";
+
+
+/* Colour Variables */
+@green: #81939A;
+@red: #e54a35;
+@helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@kepler: 'Kepler Std';
+@sans: "Gotham HTF";
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+
+/* =Structure
+-------------------------------------------------------------- */
+
+html {
+	font-size: 62.5%;
+}
+
+body{
+	font: 1.6em/1.5 'Adobe Caslon Pro',Georgia, serif;
+ 	background-position: 0 -150px;
+	color: #555;
+}
+
+#page {
+	display: block;
+	margin: 0 auto;
+ }
+
+#main{
+ 	margin: 0 auto;
+}
+#branding{
+	width: 100%;
+	background: rgba(0,0,0,.9);
+}
+
+#primary {
+}
+
+#content { }
+
+.wrap {
+	max-width: 880px;
+	margin: 0 auto;
+}
+
+
+#secondary {
+	float: right;
+	overflow: hidden;
+	width: 220px;
+	border: 1px solid #ccc;
+}
+#colophon {
+	clear: both;
+	display: block;
+	width: 100%;
+	border-top: double #ccc;
+}
+
+
+/* =Type and basics
+-------------------------------------------------------------- */
+
+a{
+	color:#444;
+	text-decoration: none;
+	.transition(.5s, ease-out);
+	
+}
+
+em{
+	font-style: italic;
+}
+
+strong{
+	font-weight: bold;
+}
+
+
+p {
+	margin: 0 0 1em;
+}
+
+h1,h2,h3,h4,h5 {
+	margin: 0 0 1em;
+}
+
+h1 {
+	font-size: 1em;
+}
+
+h1.entry-title{
+	font-size: 2em;
+	font-weight: 300;
+	a {
+		background: #000;
+		color: white;
+		padding: 10px 25px;
+	}
+	font-variant: small-caps;
+
+}
+
+blockquote {
+	background: url(images/lined-paper.png);
+	font-size: 16px;
+	line-height: 30px;
+	color: #6B8F9C;
+	padding: 35px 25px 25px 50px;
+	margin: 25px 0;
+	.rounded(4px);
+	address {
+		margin-top: 30px;
+		text-decoration: underline;
+	}
+}
+
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+}
+.alignright {
+	display: inline;
+	float: right;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* =Header
+-------------------------------------------------------------- */
+#branding {
+	color: #fff;
+	padding: 5px 0;
+	text-transform: uppercase;
+	font-family: @sans;
+	nav{float: left;}
+}
+
+.logo {
+	width: 30px;
+	float: left;
+	padding-top: 10px;
+	margin-right: 25px;
+}
+ 
+
+#site-title {
+	font-size: 1.725em;
+	float: right;
+	font-weight: 500;
+	margin: 0;
+	a { color: #fff;  &:hover { color: @red;} }
+}
+
+
+
+
+header.entry-header {
+	.entry-title{
+		text-align: center;
+		padding: 10px; 
+	}	
+}
+
+#branding {
+	.now-publishing {  
+		.number {
+			font-size: 1.25em;
+			font-style: normal;
+			color: @red;
+			display: block;
+			font-family: Georgia;
+			text-transform: capitalize;
+			font-style: italic;
+			
+		}
+		.no {
+			font-size: .5em;
+			font-family: Georgia;
+			color: #444; 
+			text-transform: none;
+			font-style: italic;
+			border-bottom: 1px solid;
+		}
+
+	}
+
+}
+
+
+aside.featured-image {
+	font-size: 13px;
+	font-style: italic;
+	line-height: 19px;
+	color: #777;
+	padding: 0 40px;
+	.caption {
+		border-bottom: 1px solid @red;
+		padding-bottom: 15px;
+		margin-top: 15px;
+	}
+	button.show-notes {
+		display: none;
+	}
+}
+
+
+.meta {
+	border-bottom: 1px solid @red;
+	font-style: italic;
+	font-family: @kepler;
+	margin-top: 1em;
+	.meta-menu {
+		float: right;
+	}
+}
+
+
+
+.site-description {
+	font-size: 1em;
+	font-weight: 100;
+	margin: 0 0 .25em;
+	color: #444;
+	float: left;
+}
+
+ /* =Articles
+ -------------------------------------------------------------- */
+
+ article {
+
+ 	border-bottom: double;
+ }
+
+ article.first-article { padding-top: 0; }
+
+
+
+
+/* =Nav Menus
+-------------------------------------------------------------- */
+
+nav {
+	&.horizontal{
+		list-style-type: none;
+		li { float: left; margin-right: 25px;}
+	}
+}
+
+
+/* =Content
+-------------------------------------------------------------- */
+
+.entry-content {
+	.columns(250px, 0, 50px, #EEE, solid, 1px);
+}
+
+.featured-image img{
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+}
+.sticky { }
+
+.entry-meta {
+	margin-top: 25px;
+	clear: both;
+	display: block;
+	font-style: italic;
+	h2 {
+		border-bottom: 2px solid ;
+		padding-bottom: 5px;
+	}
+	.field {
+		border-bottom: 1px solid #efefef;
+		margin-bottom: 10px;
+		padding-bottom: 5px;
+	}
+	a { 
+		border-bottom: 1px solid @red; 
+		&:hover {
+			background: #eee;
+			border-bottom: 1px solid #444; 
+		}
+	}
+	ul  {
+		padding: 0;
+	}
+	li {
+		margin-bottom: 10px;  
+	}
+
+}
+.single-author .entry-meta .byline {
+	display: none;
+}
+.entry-content {
+	h2 { 
+		font-size: 14px;
+		margin: 35px 0 15px;
+		padding-top: 5px;
+		border-top: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+		text-align: center;
+
+	}
+}
+
+.entry-content ul, .entry-content ol {
+	padding-left: 40px;
+	margin-bottom: 25px;
+}
+
+#content nav {
+	display: block;
+	overflow: hidden;
+}
+#content nav .nav-previous {
+	float: left;
+	width: 50%;
+}
+#content nav .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+#content nav {
+	.nav-next, .nav-previous {
+		font-size: 1.25em;
+		padding: 5px;
+		a:hover { color: @red; } 
+	}
+}
+
+#content #nav-above {
+	display: none;
+}
+.paged #content #nav-above,
+.single #content #nav-above {
+	display: block;
+}
+#nav-below {
+	margin: 1em 0 0;
+}
+.page-link {
+	clear: both;
+	margin: 0 0 1em;
+}
+.page .edit-link {
+	clear: both;
+	display: block;
+}
+
+/* 404 page */
+.error404 .widget {
+	float: left;
+	width: 33%;
+}
+.error404 .widget .widgettitle,
+.error404 .widget ul {
+	margin-right: 1em;
+}
+.error404 .widget_tag_cloud {
+	clear: both;
+	float: none;
+	width: 100%;
+}
+
+
+/* =Front page
+-------------------------------------------------------------- */
+
+
+/* Buttons */
+button {
+	display: inline-block;
+	font-weight: bold;
+	line-height: 27px;
+	min-width: 50px;
+	overflow: hidden;
+	padding: 0 9px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+	margin: 0;
+	-webkit-border-radius: 3px;
+	-webkit-background-clip: padding-box;
+	-webkit-box-sizing: border-box;
+	color: #505c77;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+	border: solid 1px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fdfefe), to(#f0f1f2));
+	-webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, .05);
+	box-sizing: border-box;
+	border-color: #ccc #c0c1c2 #bdbec0;
+}
+
+button.blue {
+	font-size: 13px;
+	line-height: 36px;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: #fff;
+	padding: 0 15px;
+	border: solid 1px;
+	border-radius: 3px;
+	background: -webkit-gradient( linear, left top, left bottom, from(#50A9E7), to(#307CB3) );
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 1px rgba(0,0,0,.08);
+	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+	border-color: #2978B0 #266FA5 #1C557D;
+}
+
+/* Notices */
+.post .notice,
+.error404 #searchform {
+	background: #eee;
+	display: block;
+	padding: 1em;
+}
+
+/* Image Attachments */
+.image-attachment div.entry-meta {
+	float: left;
+}
+.image-attachment nav {
+	float: right;
+	margin: 0 0 1em 0;
+}
+.image-attachment .entry-content {
+	clear: both;
+}
+.image-attachment .entry-content .entry-attachment {
+	background: #eee;
+	margin: 0 0 1em;
+	padding: 1em;
+	text-align: center;
+}
+.image-attachment .entry-content .attachment {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Aside Posts */
+.format-aside .entry-header {
+	display: none;
+}
+.single .format-aside .entry-header {
+	display: block;
+}
+.format-aside .entry-content,
+.format-aside .entry-summary {
+	padding-top: 1em;
+}
+.single .format-aside .entry-content,
+.single .format-aside .entry-summary {
+	padding-top: 0;
+}
+
+/* Gallery Posts */
+.format-gallery .gallery-thumb {
+	float: left;
+	margin: 0 1em 0 0;
+}
+
+/* Image Posts */
+.format-image .entry-header {
+	display: none;
+}
+.single .format-image .entry-header {
+	display: block;
+}
+.format-image .entry-content,
+.format-image .entry-summary {
+	padding-top: 1em;
+}
+.single .format-image .entry-content,
+.single .format-image .entry-summary {
+	padding-top: 0;
+}
+
+
+/* =Images
+-------------------------------------------------------------- */
+
+a img {
+	border: none;
+}
+p img {
+	margin-bottom: 0.5em; /* a small bottom margin prevents content floating under images */
+	max-width: 100%; 
+	height: auto;
+}
+/*
+Resize images to fit the main content area.
+- Applies only to images uploaded via WordPress by targeting size-* classes.
+- Other images will be left alone. Use "size-auto" class to apply to other images.
+*/
+img.size-auto,
+img.size-full,
+img.size-large,
+img.size-medium,
+.attachment img,
+.widget-area img {
+	max-width: 100%; /* When images are too wide for containing element, force them to fit. */
+	height: auto; /* Override height to match resized width for correct aspect ratio. */
+}
+img.alignleft {
+	margin-right: 1em;
+}
+img.alignright {
+	margin-left: 1em;
+}
+.wp-caption {
+	padding: .5em;
+	text-align: center;
+}
+.wp-caption img {
+	margin: .25em;
+}
+.wp-caption .wp-caption-text {
+	margin: .5em;
+}
+.gallery-caption {
+}
+.wp-smiley {
+	margin: 0;
+}
+
+
+/* =Forms
+-------------------------------------------------------------- */
+
+#searchform label {
+	display: none;
+}
+#searchform input#s {
+	width: 60%;
+}
+input[type=text],
+input#s {
+	margin: 0 1em 0 0;
+	width: 60%;
+}
+textarea {
+	width: 80%;
+}
+
+/* Class for labelling required form items */
+.required {
+	color: #cc0033;
+}
+
+
+/* =Comments
+-------------------------------------------------------------- */
+
+article.comment {
+	display: block;
+}
+#respond input[type=text] {
+	display: block;
+	width: 60%;
+}
+#respond textarea {
+	display: block;
+	margin: 0 0 1em;
+	width: 80%;
+}
+#respond .form-allowed-tags {
+	clear: both;
+	width: 80%;
+}
+#respond .form-allowed-tags code {
+	display: block;
+}
+
+
+/* =Widgets
+-------------------------------------------------------------- */
+
+.widget {
+	display: block;
+}
+.widget-area .widget_search {
+	overflow: hidden;
+}
+.widget-area .widget_search input {
+	float: left;
+}
+
+
+
+
+
+/* Increase the size of the content area for templates without sidebars */
+.full-width #content,
+.image-attachment #content,
+.error404 #content {
+	margin: 0;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text,
+.assistive-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+
+#colophon {
+	padding: 1em 0 0;
+	font-size: 12px;
+	a { border-bottom: 1px solid @red;}
+}
+
+.which-template {
+	position: fixed;
+	bottom: 10px;
+}
+
+/* =Group/Clearfix
+-------------------------------------------------------------- */
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}
+.group {
+	zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+
+
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+
+
+
+
+/* =Reponsive styles
+-------------------------------------------------------------- */
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+
+
+/*		iPhone standard layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	body {
+		font-size: 14px;
+		line-height: 22px;
+		padding: 10px;
+	}
+
+	#site-title { font-size: 30px;}	
+	#site-description { font-size: 12px; line-height: 20px;}
+
+	#branding .now-publishing .number { font-size: 12px;}
+	hgroup { margin-top: 5px;}
+
+	.entry-meta { 
+		display: none;
+	}
+
+	aside.featured-image {
+		p.button { text-align: center; margin: 25px;}
+		button.show-notes {
+			display: inline-block;
+		}
+	}		
+
+	.current-archival-moment { padding: 0;}
+	h1.entry-title { font-size: 16px; }
+
+	body.home {
+		.row.get-in-touch {
+
+			padding: 0 25px 25px;
+
+			div {
+				width: 50%;
+				font-size: 12px;
+				&.second { 
+					border-left: 1px solid #ccc;
+					padding-left: 10%;
+					.twitter-follow-button {
+						margin-left: 45px;
+					}
+				}
+			}
+		}
+	}
+
+
+}
+
+
+
+
+/*		iPhone wide Layout: 480px.  */
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+	body {
+		padding: 10px;
+	}
+}
